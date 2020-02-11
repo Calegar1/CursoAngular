@@ -7,5 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  xxx:number = 10; 
+ nome ="Fabio";
+ 
+ alterar(){
+   this.nome = "123456"
+ }
+
+  mostrar(){
+    alert("SHOW");
+    let title = 'ppa';
+  }
+  show(x){
+    this.title = x;
+  }
+  mostraroutro(y){
+    alert(y);
+  }
+  
 }
