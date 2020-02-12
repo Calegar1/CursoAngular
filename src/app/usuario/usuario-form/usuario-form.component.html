@@ -1,1 +1,19 @@
 <p>usuario-form works!</p>
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Primeiro Nome</th>
+        <th scope="col">Sobre Nome</th>
+        <th scope="col">Apelido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of usuarios" >
+        <th scope="row"> {{u.id}} </th>
+        <td>{{ u.primeiro_nome}}</td>
+        <td>{{ u.sobrenome}}</td>
+        <td>{{u.apelido}}</td>
+      </tr>
+    </tbody>
+  </table>
