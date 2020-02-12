@@ -9,10 +9,31 @@ import {UsuarioService} from './../usuario.service';
 export class UsuarioFormComponent implements OnInit {
 
   usuarios : any = [];
-  
+  pokemons : any = [];
+  limit = 20;
+  offset : number = 0;
+
+
   constructor(private usuarioService : UsuarioService) {
     this.usuarios = this.usuarioService.getAll();
-    
+    this.usuarioService.getAllPokemons(this.offset).subscribe(
+      (success) => {  
+        console.log(success)
+        this.pokemons = success;
+                                          },
+      (error) => {console.log(error)}
+    );
+  }
+   
+  proximaPagina(){
+    this.offset += 20;
+    this.usuarioService.getAllPokemons(this.offset).subscribe(
+      (success)  => {
+       console.log(success)
+       this.pokemons = success;
+     },
+     (error) => {console.log(error)}
+     );
   }
 
   ngOnInit(): void {

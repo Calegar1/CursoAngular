@@ -8,7 +8,7 @@ import { SegundoComponent } from './segundo/segundo.component';
 import { FormsModule} from '@angular/forms';
 import { UsuarioFormComponent } from './usuario/usuario-form/usuario-form.component';
 import { UsuarioModule } from './usuario/usuario.module';
-
+import {HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,9 @@ import { UsuarioModule } from './usuario/usuario.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    UsuarioModule
+    UsuarioModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
