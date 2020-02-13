@@ -10,9 +10,9 @@ export class UsuarioFormComponent implements OnInit {
 
   usuarios : any = [];
   pokemons : any = [];
-  limit = 20;
   offset : number = 0;
-
+  select: number;
+  users : any = [];
 
   constructor(private usuarioService : UsuarioService) {
     this.usuarios = this.usuarioService.getAll();
@@ -21,12 +21,18 @@ export class UsuarioFormComponent implements OnInit {
         console.log(success)
         this.pokemons = success;
                                           },
-      (error) => {console.log(error)}
     );
+
+   //this.users.usuarioService.getAll();
+    this.usuarioService.getAllUsers().subscribe(
+      (success)  => {
+       this.users = success;
+     },
+     );
   }
    
   proximaPagina(){
-    this.offset += 20;
+    this.offset += this.select;
     this.usuarioService.getAllPokemons(this.offset).subscribe(
       (success)  => {
        console.log(success)
@@ -35,6 +41,9 @@ export class UsuarioFormComponent implements OnInit {
      (error) => {console.log(error)}
      );
   }
+
+
+    
 
   ngOnInit(): void {
   }

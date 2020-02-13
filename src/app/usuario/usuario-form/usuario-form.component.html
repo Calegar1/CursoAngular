@@ -37,4 +37,27 @@
     </tbody>
   </table>
   <input type="button" class="btn-dark" value="Ver +20" (click)="proximaPagina()">
+  <br><br><br>
+  <table class="table table-hover table-dark">
+
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Salario</th>
+        <th scope="col">Idade</th>
+      </tr>
+    </thead>
+  <tbody>
+  <tr *ngFor="let u of users.data" >
+    <td>{{ u.id}} </td>
+    <td>{{ u.employee_name}} </td>
+    <td>{{ u.employee_salary }}</td>
+    <td>{{ u.employee_age }}</td>
+  </tr>
+</tbody>
+</table>
+
+
+
   

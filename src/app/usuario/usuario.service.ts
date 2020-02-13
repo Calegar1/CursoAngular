@@ -16,10 +16,14 @@ export class UsuarioService {
        {id: 3, primeiro_nome: 'Fabio', sobrenome: 'Calegari', apelido: 'fcalegari'},
        {id: 4, primeiro_nome: 'Miriã', sobrenome: 'Pereira', apelido: 'mpereira'}
      ]; }
+     
+     
      getAllPokemons(offset) {
       return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
     }
-  
+  getAllUsers(){
+  return this.http.get(" 	http://dummy.restapiexample.com/api/v1/employees");
+  }
   constructor(private http : HttpClient) { 
   }
 }
