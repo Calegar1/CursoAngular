@@ -1,4 +1,7 @@
 <p>usuario-form works!</p>
+<input type='button' class=" btn btn-success m-4 btn-lg" [class.disabled]="isHabilitado" [value]="textoBotao">
+<input type="button" class="btn btn-dark m-4 btn-lg" value="Desabilitar botão" (click)="desabilitarBotao()">
+
 <table class="table table-hover table-dark">
     <thead>
       <tr>

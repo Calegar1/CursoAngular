@@ -13,6 +13,8 @@ export class UsuarioFormComponent implements OnInit {
   offset : number = 0;
   select: number;
   users : any = [];
+  textoBotao = "Meu botão";
+  isHabilitado = true;
 
   constructor(private usuarioService : UsuarioService) {
     this.usuarios = this.usuarioService.getAll();
@@ -30,7 +32,16 @@ export class UsuarioFormComponent implements OnInit {
      },
      );
   }
-   
+  desabilitarBotao(){
+      if (this.isHabilitado == true){
+         this.isHabilitado = false;
+      
+       } else { 
+        this.isHabilitado = true;
+      }
+  
+  } 
+
   proximaPagina(){
     this.offset += this.select;
     this.usuarioService.getAllPokemons(this.offset).subscribe(
