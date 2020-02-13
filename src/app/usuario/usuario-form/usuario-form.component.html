@@ -1,4 +1,4 @@
-<p>usuario-form works!</p>
+
 <input type='button' class=" btn btn-success m-4 btn-lg" [class.disabled]="isHabilitado" [value]="textoBotao">
 <input type="button" class="btn btn-dark m-4 btn-lg" value="Desabilitar botão" (click)="desabilitarBotao()">
 
@@ -21,6 +21,10 @@
     </tbody>
   </table>
 
+<app-usuario-detalhe *ngIf="pokemonSelecionado"  
+                     [pokemonDetalhe] = "pokemonSelecionado" ></app-usuario-detalhe>
+
+
   <!-- Pokemons abaixo  -->
   <table class="table table-hover table-dark">
     <thead>
@@ -35,11 +39,19 @@
         
         <td>{{ u.name}}</td>
         <td>{{ u.url }}</td>
-        <td> <a [href] = "u.url" target ="blank" >Ver mais detalhes</a> </td>
+        <td> <a href = "#" (click)="selecionarPokemon(u.url)" >Ver mais detalhes</a> </td>
       </tr>
     </tbody>
   </table>
   <input type="button" class="btn-dark" value="Ver +20" (click)="proximaPagina()">
+  <br><br><br>
+  
+  <select name="select" #limit (change)="trocarLimit(limit.value)" >
+    <option value="10">10</option> 
+    <option value="20" selected>20</option>
+    <option value="30">30</option>
+  </select>
+
   <br><br><br>
   <table class="table table-hover table-dark">
 

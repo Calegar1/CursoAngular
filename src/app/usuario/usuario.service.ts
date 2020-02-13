@@ -18,11 +18,15 @@ export class UsuarioService {
      ]; }
      
      
-     getAllPokemons(offset) {
-      return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`);
+     getAllPokemons(offset , limit) {
+      return this.http.get('https://pokeapi.co/api/v2/pokemon-form?limit='+ limit +'&offset='+ offset);
     }
   getAllUsers(){
   return this.http.get(" 	http://dummy.restapiexample.com/api/v1/employees");
+  }
+
+  getOnePokemon(url){
+      return this.http.get(url);
   }
   constructor(private http : HttpClient) { 
   }
