@@ -7,9 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UsuarioDetalheComponent implements OnInit {
 
- @Input() pokemonDetalhe;
-  
-                  
+  @Input() pokemonDetalhe ;
+
   constructor() { }
 
   ngOnInit(): void {
