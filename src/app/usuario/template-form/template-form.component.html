@@ -1,17 +1,45 @@
 <form #meuForm="ngForm" (submit)="onSubmit(meuForm)">
   <div class="form-group">
     <label for="exampleInputEmail1">Email </label>
-    <input type="email" class="form-control"
-      placeholder="Enter email" #emailInput ngModel name="emailInput">
+    <input type="email" class="form-control" placeholder="Enter email" #emailInput="ngModel" name="emailInput"
+      [(ngModel)]="emailModel" required min='3'
+      [class.is-invalid]="isError(emailInput)"
+      [class.is-valid]="isSuccess(emailInput)">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
+  <div class="alert alert-danger" *ngIf="isError(emailInput)">
+    Email Obrigatório
+  </div>
+
+  <div>
+    <p>válido : {{ emailInput.valid}}</p>
+    <p>touched : {{ emailInput.touched}}</p>
+    <p>dirty : {{ emailInput.dirty}}</p>
+  </div>
+
+  <!-- Senha -->
+
   <div class="form-group">
     <label for="exampleInputPassword1">Senha</label>
-  <input type="password" class="form-control" placeholder="Senha" name="senhaInput" #senhaInput ngModel>
+    <input type="password" class="form-control" placeholder="Senha" name="senhaInput" #senhaInput='ngModel'
+      name="senhaInput" [(ngModel)]="senhaModel" required min='3'
+      [class.is-invalid]="isError(senhaInput)"
+      [class.is-valid]="isSuccess(senhaInput)">
   </div>
+
+  <div class="invalid-feedback" *ngIf="isError(senhaInput)">
+    Senha Obrigatório
+  </div>
+
+  <div>
+    <p>válido : {{ senhaInput.valid}}</p>
+    <p>touched : {{ senhaInput.touched}}</p>
+    <p>dirty : {{ senhaInput.dirty}}</p>
+  </div>
+
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" [disabled]="meuForm.valid == false" class="btn btn-primary">Submit</button>
 </form>
