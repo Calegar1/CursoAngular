@@ -7,15 +7,12 @@
       [class.is-valid]="isSuccess(emailInput)">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  <div class="alert alert-danger" *ngIf="isError(emailInput)">
-    Email Obrigatório
-  </div>
+  <app-show-erros [isErrorFilho]="isError(emailInput)"
+  mensagem= "O email é obrigatorio"
+ ></app-show-erros>
+   
+<app-debug-campo [campoFilho]="emailInput"></app-debug-campo>
 
-  <div>
-    <p>válido : {{ emailInput.valid}}</p>
-    <p>touched : {{ emailInput.touched}}</p>
-    <p>dirty : {{ emailInput.dirty}}</p>
-  </div>
 
   <!-- Senha -->
 
@@ -26,20 +23,17 @@
       [class.is-invalid]="isError(senhaInput)"
       [class.is-valid]="isSuccess(senhaInput)">
   </div>
-
-  <div class="invalid-feedback" *ngIf="isError(senhaInput)">
-    Senha Obrigatório
-  </div>
-
-  <div>
-    <p>válido : {{ senhaInput.valid}}</p>
-    <p>touched : {{ senhaInput.touched}}</p>
-    <p>dirty : {{ senhaInput.dirty}}</p>
-  </div>
-
+<app-show-erros [isErrorFilho]="isError(senhaInput)"
+ mensagem= "A senha é obrigatoria"
+></app-show-erros>
+  
+<app-debug-campo [campoFilho]="senhaInput"></app-debug-campo>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" [disabled]="meuForm.valid == false" class="btn btn-primary">Submit</button>
+<br><br>
+<app-debug-campo [campoFilho]="meuForm"></app-debug-campo>
+
 </form>
