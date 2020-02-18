@@ -1,4 +1,3 @@
-import { CepService } from './../../shared/services/cep.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
@@ -18,60 +17,88 @@ export class UsuarioFormComponent implements OnInit {
   mostrartexto = "Meu botão";
   isHabilitado = true;
 
-  user: any = [];
-  cep: number;
-  endereco: any = [];
+  user : any = [];
+  cep :number;
+  endereco : any = [];
 
-  constructor(private enderecoService: UsuarioService, private formBuilder: FormBuilder, private cepService: CepService) {
+  constructor(
+    private enderecoService: UsuarioService, 
+    private formBuilder : FormBuilder
+    
+    ) { 
     this.addusuarios = this.formBuilder.group({
-      nameInput: ['', []],
-      senhaInput: ['', []],
-      emailInput: ['', []],
-      cepInput: ['', []],
-      cidadeInput: ['', []],
-      logradouroInput: ['', []],
-      numeroInput: ['', []],
-      complementoInput: ['', []],
-      bairroInput: ['', []],
-      estadoInput: ['', []]
+      nameInput: ['', [ ]],
+      senhaInput: ['',[ ]],
+      emailInput: ['',[ ]],
+      cepInput: ['',[ ]],
+      cidadeInput: ['',[ ]],
+      logradouroInput: ['',[ ]],
+      numeroInput: ['',[ ]],
+      complementoInput: ['',[ ]],
+      bairroInput: ['',[ ]],
+      estadoInput: ['',[ ]]
     });
 
   }
 
   getEndereco() {
-    let cep = this.addusuarios.value.cepInput;
-    this.cepService.getCep(cep).subscribe(
-      (response: any) => {
-        console.log(response);
+    this.cep = this.addusuarios.value.cepInput;
+    console.log(this.cep)
+    this.enderecoService.getCep(this.cep).subscribe(
+        (response : any) => {
+        console.log (response);
         this.addusuarios.patchValue(
           {
-            logradouroInput : response.logradouro,
-            cidadeInput: response.localidade,
+            cidadeInput : response.localidade,
+            logradouroInput  : response.logradouro,
             bairroInput : response.bairro,
-            estadoInput : response.estado
+            estadoInput : response.uf
           }
         )
+        this.endereco = response;
       },
-      (error) => {
-        console.log(error);
-      }
-    )
-  }
+      
+    );
 
+    }
   onSubmit() {
-    console.log(this.addusuarios)
+    console.log (this.addusuarios);
+
+      let obj = {
+        nome: this.addusuarios.value.nomeInput,
+        email: this.addusuarios.value.emailInput,
+        senha: this.addusuarios.value.senhaInput,
+        tipo_usuario: 1,
+        cep: this.addusuarios.value.cepInput,
+        logradouro: this.addusuarios.value.logradouroInput,
+        numero: this.addusuarios.value.numeroInput,
+        complemento: this.addusuarios.value.complementoInput,
+        cidade: this.addusuarios.value.cidadeInput,
+        bairro: this.addusuarios.value.bairroInput,
+        estado: this.addusuarios.value.estadoInput
+      }
+
+    this.enderecoService.postDados(obj).subscribe(
+      (response) => {
+        console.log ( response )
+      },
+    )
+
+
   }
 
-  inverte() {
+  
+
+  inverte(){
     if (this.isHabilitado == true)
-      this.isHabilitado = false
+   this.isHabilitado = false
     else {
       this.isHabilitado = true
     }
   }
 
   //poderia ser assim! this.ishabilitado = !this.isHabilitado!
-
+    
 
   ngOnInit(): void {
   }
