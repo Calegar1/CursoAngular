@@ -1,5 +1,5 @@
+import { PokemonService } from './../pokemon.service';
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -43,7 +43,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   selecionarPokemon(url){
-    this.pokemonService.getOnePokemon(url).subscribe(
+    this.pokemonService.getAbilities(url).subscribe(
       (response) => {
         this.pokemonSelecionado = response;
         console.log ( this.pokemonSelecionado );

@@ -6,22 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
- nome ="Fabio";
- 
- alterar(){
-   this.nome = "123456"
- }
-
-  mostrar(){
-    alert("SHOW");
-    let title = 'ppa';
+  title = '';
+  teste = 10;
+  nome = "Giovanni";   
+    show (x) {
+    this.title  = x
+    console.log (x)
   }
-  show(x){
-    this.title = x;
+  exiba () {
+    alert("Alo");
   }
-  mostraroutro(y){
-    alert(y);
+  exibir (){
+    console.log(this.nome)
+  }
+  numero (){
+    console.log(this.nome = "1,2,3,4,5,6")
   }
   
 }

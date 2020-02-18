@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateFormComponent implements OnInit {
 
-  emailModel
+  emailModel;
   senhaModel;
 
   constructor() { }
@@ -15,13 +15,16 @@ export class TemplateFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-onSubmit(meuForm){
-  console.log(meuForm)
-}
- isError(campo){
-  return (!campo.valid && campo.touched);
- }
- isSuccess(campo){
-   return (campo.valid && campo.touched == true);
- }
+  onSubmit (meuForm) {
+    console.log (meuForm);
+  }
+
+  isError(campo){
+    return (!campo.valid && campo.touched);
+  }
+
+  isSuccess(campo){
+    return (campo.valid && campo.touched);
+  }
+
 }

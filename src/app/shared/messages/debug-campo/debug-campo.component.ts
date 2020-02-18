@@ -6,7 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./debug-campo.component.css']
 })
 export class DebugCampoComponent implements OnInit {
- @Input() campoFilho;
+
+  @Input() campoFilho;
+
   constructor() { }
 
   ngOnInit(): void {

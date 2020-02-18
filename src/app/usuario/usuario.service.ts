@@ -1,26 +1,29 @@
 import { Injectable } from '@angular/core';
-import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 import { HttpClient } from '@angular/common/http';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  
 
-  getAll(){
-    return [
-       {id: 1, primeiro_nome: 'Fabrizio', sobrenome: 'Borelli', apelido: 'fborelli'},
-       {id: 2, primeiro_nome: 'Nelson', sobrenome: 'Gonçalves', apelido: 'negool'},
-       {id: 3, primeiro_nome: 'Fabio', sobrenome: 'Calegari', apelido: 'fcalegari'},
-       {id: 4, primeiro_nome: 'Miriã', sobrenome: 'Pereira', apelido: 'mpereira'}
-     ]; }
-     
-  getAllUsers(){
-  return this.http.get(" 	http://dummy.restapiexample.com/api/v1/employees");
+  constructor( private http : HttpClient) { 
+
   }
 
-  constructor(private http : HttpClient) { 
+  getAll() {
+      return [
+      {id : '1', email : 'GiovanniGuariento97@gmail.com', telefone : '1195445-5058', redesocial : '@giovanni'},
+      {id : '2', email : 'GiovanniGuariento@gmail.com', telefone : '1195445-5058', redesocial : '@giovanni'},
+      {id : '3', email : 'Giovanni@gmail.com', telefone : '1195445-5058', redesocial : '@giovanni'},
+      {id : '4', email : 'Guariento@gmail.com', telefone : '1195445-5058', redesocial : '@guariento'},
+      {id : '5', email : 'Gabriel@gmail.com', telefone : '1195445-5058', redesocial : '@grabriel'}
+      
+      //vetor     
+    ];
+    //service getall
   }
+  getAllusers () {
+    return this.http.get("http://dummy.restapiexample.com/api/v1/employees?limit=100");
+  }
+
 }

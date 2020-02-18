@@ -1,22 +1,20 @@
-<p grifarParagrafo >usuario-detalhe works!</p>
-
 <div id="detalhe" class="row d-flex justify-content-center">
-    <div class="card text-white bg-dark mb-3" style="width: auto;">
+    <div class="card mb-4 mt-4" style="width: auto;">
 
-        <div class="card-body">
-            <h5 class="card-title">Imagens</h5>
+        <div class="card-body table-dark">
+            <h5 class="card-title text-center">Imagens</h5>
 
-            <table class="table">
+            <table class="table ">
                 <thead>
-                  <tr>        
+                  <tr class="text-center">        
                     
-                    <th  scope="col">Name</th>
-                    <th scope="col">Imagem</th>
+                    <th  scope="col">Shiny</th>
+                    <th scope="col">Pokemon</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr >                                        
-                    <td> {{ pokemonDetalhe.name}}</td>
+                    <td> <img [src]="pokemonDetalhe.sprites?.front_shiny" alt="">  </td>
                     <td> <img [src]="pokemonDetalhe.sprites?.front_default" alt="">  </td>                    
                   </tr>                  
                 </tbody>

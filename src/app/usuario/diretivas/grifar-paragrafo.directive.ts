@@ -6,14 +6,15 @@ import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
 })
 export class GrifarParagrafoDirective {
 
-  constructor(private el : ElementRef, private renderer : Renderer2) { 
-    console.log(this.el);
-
+  constructor(private el : ElementRef, private renderer: Renderer2) { 
+    
   }
- @HostListener('mouseenter') onEnter(){
-  this.renderer.setStyle(this.el.nativeElement, 'background-color', 'green')
- }
- @HostListener('mouseleave') onLeave(){
-  this.renderer.setStyle(this.el.nativeElement, 'background-color', 'white')
- }
+
+  @HostListener ('mouseenter') onEnter(){
+    this.renderer.setStyle(this.el.nativeElement,  'background-color', 'green')
+  } 
+  @HostListener ('mouseleave') onLeave(){
+    this.renderer.setStyle(this.el.nativeElement,  'background-color', 'white ')
+  } 
+
 }
