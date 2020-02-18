@@ -12,6 +12,9 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     PrimeiroComponent,
     SegundoComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    UsuarioListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { HomeComponent } from './home/home.component';
     UsuarioModule,
     HttpClientModule,
     PokemonModule,
-    ProdutosModule
+    ProdutosModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
     
   ],
   providers: [],

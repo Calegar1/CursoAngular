@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuarioFormComponent },
   { path: 'usuarios/template-form', component: TemplateFormComponent },
   { path: 'usuarios/data-form', component: DataFormComponent }
+  
 ];
 
 @NgModule({
