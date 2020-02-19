@@ -25,6 +25,10 @@ export class UsuarioFormComponent implements OnInit {
 
   isEdicao = false;
   idUsuario = 0;
+  titulo : any ='';
+  textoBotao: any = '';
+  classbtn: any = '';
+
 
   constructor(
     private enderecoService: UsuarioService,
@@ -42,6 +46,9 @@ export class UsuarioFormComponent implements OnInit {
         if (rota.id) {
           console.log("é edição");
           this.isEdicao = true;
+          this.titulo = "Atualizar cadastro"
+          this.textoBotao = "Atualizar"
+          this.classbtn = "btn btn-block btn-outline-dark"
           this.idUsuario = rota.id;
 
           this.usuarioService.getOneUsuario(rota.id).subscribe(
@@ -67,6 +74,9 @@ export class UsuarioFormComponent implements OnInit {
         }
         else {
           console.log("é criação")
+          this.titulo = "Cadastrar  usuario";
+          this.textoBotao = "Cadastrar"
+          this.classbtn = "btn btn-block btn-outline-success"
           this.isEdicao = false;
         }
       }
@@ -154,7 +164,6 @@ export class UsuarioFormComponent implements OnInit {
 
     //   },
     // )
-
 
   }
 
