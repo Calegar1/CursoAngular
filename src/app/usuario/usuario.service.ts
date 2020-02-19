@@ -6,15 +6,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
   getAllUsuarios(){
-    return this.http.get(`http://cursos.grandeporte.com.br:8080/usuarios`);
+    return this.http.get(this.url);
   }
   getCep(cep) {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
   }
   postDados(obj) {
-    return this.http.post(`http://cursos.grandeporte.com.br:8080/usuarios`, obj);
+    return this.http.post(this.url, obj);
   }
 
+  url = "http://cursos.grandeporte.com.br:8080/usuarios/";
   constructor( private http : HttpClient) { 
 
   }
@@ -36,10 +37,15 @@ export class UsuarioService {
   }
 
   deleteUsuario(id_usuario){
-    return this.http.delete("http://cursos.grandeporte.com.br:8080/usuarios/"+ id_usuario)
+    return this.http.delete(this.url + id_usuario)
   }
   getOneUsuario(id_usuario){
-    return this.http.get("http://cursos.grandeporte.com.br:8080/usuarios/"+ id_usuario)
+    return this.http.get(this.url + id_usuario)
   }
+
+  updateUsuario(id_usuario, obj){
+    return this.http.post (this.url + id_usuario , obj)
+  };
+
 
 }
