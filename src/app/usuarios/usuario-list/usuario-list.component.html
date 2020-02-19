@@ -1,1 +1,17 @@
-<p>usuario-list works!</p>
+<div id="detalhe" class="row d-flex justify-content-center">
+    <table class="table table-dark mt-5 ">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of usuarios">
+    
+                <td> {{ u.nome }} </td>
+                <td> {{ u.email }}</td>
+            </tr>
+    
+        </tbody>
+    </table>

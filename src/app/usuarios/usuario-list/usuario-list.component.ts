@@ -1,3 +1,4 @@
+import { UsuarioService } from './../../usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario-list.component.css']
 })
 export class UsuarioListComponent implements OnInit {
+ usuarios: any = [];
+  constructor(private usuarioService : UsuarioService) {
 
-  constructor() { }
+   }
 
   ngOnInit(): void {
+    this.getAllUsuarios();
+  }
+
+  private getAllUsuarios() {
+    this.usuarioService.getAllUsuarios().subscribe(
+      (success) => {
+        console.log (success);
+        this.usuarios = success;
+      },
+      (error)=> {console.log (error)}
+    );
   }
 
 }

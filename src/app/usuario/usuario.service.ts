@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuarioService {
+  getAllUsuarios(){
+    return this.http.get(`http://cursos.grandeporte.com.br:8080/usuarios`);
+  }
   getCep(cep) {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);
   }
