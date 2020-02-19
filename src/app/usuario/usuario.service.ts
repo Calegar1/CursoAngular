@@ -35,4 +35,8 @@ export class UsuarioService {
     return this.http.get("http://dummy.restapiexample.com/api/v1/employees?limit=100");
   }
 
+  deleteUsuario(id_usuario){
+    return this.http.delete("http://cursos.grandeporte.com.br:8080/usuarios/"+ id_usuario)
+  }
+
 }

@@ -1,16 +1,34 @@
-<div id="detalhe" class="row d-flex justify-content-center">
-    <table class="table table-dark mt-5 ">
+
+<!-- <div id="detalhe" class="row d-flex justify-content-center"> -->
+
+
+    <div class="float-right mt-4 mb-3">
+        <a class="btn btn-outline-success" [routerLink]="['/usuarios/new']" >Novo Usuário</a>
+        </div>
+
+    <table class="table table-hover table-dark mt-5 ">
         <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">URL</th>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Rua</th>
+                <th scope="col">Logradouro</th>
+                <th scope="col">Opções</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let u of usuarios">
-    
+                <td> {{ u.id }} </td>
                 <td> {{ u.nome }} </td>
                 <td> {{ u.email }}</td>
+                <td> {{ u.senha }}</td>
+                <td> {{ u.logradouro }}</td>
+                <td> {{ u.cidade }}</td>
+                <td> <button class="btn btn-outline-danger mr-2" (click)="deletar( u.id )">Deletar </button>
+                    <button class="btn btn-outline-info  mr-2 mt-2" (click)="editar()">Alterar</button>
+                </td>
             </tr>
     
         </tbody>

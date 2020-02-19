@@ -2,6 +2,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-form',
@@ -25,7 +26,8 @@ export class UsuarioFormComponent implements OnInit {
   constructor(
     private enderecoService: UsuarioService, 
     private formBuilder : FormBuilder,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
     
     ) { 
     this.addusuarios = this.formBuilder.group({
@@ -78,13 +80,15 @@ export class UsuarioFormComponent implements OnInit {
         cidade: this.addusuarios.value.cidadeInput,
         bairro: this.addusuarios.value.bairroInput,
         estado: this.addusuarios.value.estadoInput
-      }
+        }
 
     this.enderecoService.postDados(obj).subscribe(
       (response : any) => {
         console.log ( response );
         this.toastr.success
         ( "Usuario inserido com sucesso : " + response.id );
+        this.router.navigate(['/usuarios']);
+
       },
     )
 
