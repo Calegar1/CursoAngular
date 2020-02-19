@@ -1,6 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from './../../usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-list',
@@ -10,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class UsuarioListComponent implements OnInit {
  usuarios: any = [];
   constructor(private usuarioService : UsuarioService,
-    private toastr : ToastrService) {
+    private toastr : ToastrService,
+    private router : Router
+    ) {
 
    }
 
@@ -31,8 +34,9 @@ export class UsuarioListComponent implements OnInit {
    
   }
 
-editar(){
+editar(id_usuario_edit){
 
+    this.router.navigate(['/usuarios/edit/', id_usuario_edit])
   
 }
 
