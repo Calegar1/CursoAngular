@@ -1,6 +1,6 @@
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +15,7 @@ export class UsuarioService {
     return this.http.post(this.url, obj);
   }
 
-  url = "http://cursos.grandeporte.com.br:8080/usuarios/";
+  url = environment.api + "usuarios/";
   constructor( private http : HttpClient) { 
 
   }
