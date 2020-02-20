@@ -1,4 +1,6 @@
+import { LoginService } from './../shared/guards/login.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  logoutBtn: any = '';
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
+
+    if( this.loginService.isAutenticado == true){
+      this.logoutBtn = "";
+
+    }
   }
 
 }

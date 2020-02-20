@@ -1,5 +1,35 @@
 
+<div class="container center">
+<div class="row mt-4 align-content-center">
+	<div class="col-sm-4">
+<div class="card">
+<article class="card-body">
+<!-- <a href="" class="float-right btn btn-outline-primary">Sign up</a> -->
+<h4 class="card-title mb-4 mt-1">Login</h4>
+	 <form [formGroup]="meuForm" (submit)="onSubmit()">
+    <div class="form-group">
+    	<label>Seu email</label>
+        <input name="" class="form-control" placeholder="Email" type="email" formControlName="usuario" >
+    </div> <!-- form-group// -->
+    <div class="form-group">
+    	<!-- <a class="float-right" href="#">Forgot?</a> -->
+    	<label>Sua senha</label>
+        <input class="form-control" placeholder="******" type="password" formControlName="senha">
+    </div> <!-- form-group// --> 
+    <div class="form-group"> 
+    <div class="checkbox">
+      
+    </div> <!-- checkbox .// -->
+    </div> <!-- form-group// -->  
+    <div class="form-group">
+        <!-- <button type="submit" class="btn btn-primary btn-block"> Login  </button> -->
+    </div> <!-- form-group// -->                                                           
+
+
 <button class="btn-lg btn-outline-success btn-block mr - 2 mt-4" (click)="logar()">Logar</button>
 
-<button class="btn-lg btn-outline-danger btn-block mr - 2 mt-4" (click)="deslogar()">Deslogar</button>
+ <button class="btn-lg btn-outline-danger btn-block mr - 2 mt-4" (click)="deslogar()">Deslogar</button> 
 
+</form>
+</article>
+</div></div></div>
