@@ -31,7 +31,7 @@ import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.compo
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    UsuarioModule,
+    // UsuarioModule,
     HttpClientModule,
     PokemonModule,
     ProdutosModule,
