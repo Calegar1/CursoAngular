@@ -7,7 +7,7 @@ export class LoginService {
 
 isAutenticado: boolean = false;
   constructor(
-    private loginService : LoginService
+   
   ) { }
 
   isUsuarioAutenticado(){
