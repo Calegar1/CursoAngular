@@ -19,6 +19,8 @@ export class ProdutosListComponent implements OnInit {
   ngOnInit(): void {
      this.consultarProdutos();    
     }
+
+    
     
   consultarProdutos() {
       this.usuariosService.consultarProdutos().subscribe(
@@ -31,4 +33,20 @@ export class ProdutosListComponent implements OnInit {
     
   }
 
+  editar(id_usuario_edit){
+
+    this.router.navigate(['/produtos/edit', id_usuario_edit]);
+  
 }
+
+  deletar(id_usuario_list){
+    this.usuariosService.deleteUsuario(id_usuario_list).subscribe(
+      (success) => {
+        let index = this.produtos.findIndex((elemento) =>{return elemento.id == id_usuario_list});
+        this.produtos.splice (index, 1);   
+        this.toastr.success("Usuário deletado com sucesso");
+        
+      },
+      (error)=> this.toastr.error('Erro ao deletar')
+    );
+}}

@@ -16,8 +16,19 @@ export class UsuariosService {
   return this.http.post("http://localhost:8080/produtos", obj);
   }
 
+
+consultarOneProduto(id_usuario){
+  return this.http.get("http://localhost:8080/produtos/"+ id_usuario);
+}
+
   consultarProdutos () {
     return this.http.get("http://localhost:8080/produtos");
   }
+  deleteUsuario(id_usuario){
+    return this.http.delete("http://localhost:8080/produtos/"+ id_usuario)
+  }
+  updateProduto(id_usuario, obj){
+    return this.http.post ("http://localhost:8080/produtos/" + id_usuario , obj)
+  };
 
 }
