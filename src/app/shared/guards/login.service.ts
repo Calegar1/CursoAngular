@@ -8,12 +8,11 @@ import { FormsModule } from '@angular/forms';
 export class LoginService {
 
 
-  url : any = "http://localhost:8080/usuarios/";
-isAutenticado: boolean = false;
+  isAutenticado: boolean = false;
   constructor(private http : HttpClient) { }
 
   getOneUsuario(id_usuario){
-    return this.http.get(this.url + id_usuario)
+    return this.http.get("http://localhost:8080/usuarios" + id_usuario)
   }
 
   isUsuarioAutenticado(){
@@ -24,7 +23,7 @@ isAutenticado: boolean = false;
     this.isAutenticado = value;
   }
   postDados(obj) {
-    return this.http.post(this.url, obj);
+    return this.http.post("http://localhost:8080/usuarios/auth", obj);
   }
   
 }
