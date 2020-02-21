@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
       (success) => {
 
         if (success == true){
+          this.router.navigate(['/admin/home'])
           this.toastr.success(`Usuário logado com sucesso`);
         }
         else{

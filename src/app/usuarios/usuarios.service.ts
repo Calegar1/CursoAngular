@@ -12,4 +12,12 @@ export class UsuariosService {
     return this.http.get("http://cursos.grandeporte.com.br:8080/usuarios");
   }
 
+  cadastrarProduto(obj) { 
+  return this.http.post("http://localhost:8080/produtos", obj);
+  }
+
+  consultarProdutos () {
+    return this.http.get("http://localhost:8080/produtos");
+  }
+
 }
