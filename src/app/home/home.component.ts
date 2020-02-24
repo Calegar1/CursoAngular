@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
  
-  varh1: any = "Mercado não pago";
+  varh1: any = "SpotFail";
 
   constructor() { }
 

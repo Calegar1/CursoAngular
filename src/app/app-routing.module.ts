@@ -14,11 +14,17 @@ const routes: Routes = [
     loadChildren: () => import('./usuario/usuario.module')
       .then(m => m.UsuarioModule)
   },
+  {path: 'produtos',
+    loadChildren: () => import('./produtos/produtos.module')
+      .then(m => m.ProdutosModule)},
   {
     path: 'admin', loadChildren: () => import('./admin/admin.module')
       .then(m => m.AdminModule),
     canActivate: [AuthGuardService]
-  }
+  },
+  {path: 'pokemons',
+  loadChildren: () => import('./pokemon/pokemon.module')
+    .then(m => m.PokemonModule)},
 ];
 
 @NgModule({

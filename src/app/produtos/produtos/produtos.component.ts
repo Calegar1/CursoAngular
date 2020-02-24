@@ -15,6 +15,9 @@ export class ProdutosComponent implements OnInit {
   produtos : FormGroup;
   isEdicao: any = false;
   idProduto = 0;
+  titulo;
+  textoBotao;
+  classbtn
 
   constructor(private formBuilder : FormBuilder, 
      private usuariosService: UsuariosService,
@@ -39,9 +42,9 @@ export class ProdutosComponent implements OnInit {
         if (rota.id) {
           console.log("é edição");
           this.isEdicao = true;
-          // this.titulo = "Atualizar cadastro"
-          // this.textoBotao = "Atualizar"
-          // this.classbtn = "btn btn-block btn-outline-dark"
+           this.titulo = "Atualizar cadastro"
+           this.textoBotao = "Atualizar"
+           this.classbtn = "btn btn-block btn-outline-dark"
           this.idProduto = rota.id;
   
           this.usuariosService.consultarOneProduto(rota.id).subscribe(
@@ -61,9 +64,9 @@ export class ProdutosComponent implements OnInit {
         }
         else {
           console.log("é criação")
-          // this.titulo = "Cadastrar  usuario";
-          // this.textoBotao = "Cadastrar"
-          // this.classbtn = "btn btn-block btn-outline-success"
+           this.titulo = "Cadastrar  usuario";
+          this.textoBotao = "Cadastrar"
+          this.classbtn = "btn btn-block btn-outline-success"
           this.isEdicao = false;
         }
       }

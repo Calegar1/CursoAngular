@@ -1,4 +1,4 @@
-<h1 class="mt-4 mb-5 text-center">Cadastramento de Produtos</h1>
+<h1 class="mt-4 mb-5 text-center">{{titulo}}</h1>
 
 <form [formGroup]="produtos" (submit)="onCadastrar()">
   <div class="form-row">
@@ -20,6 +20,6 @@
     </textarea>
   </div>
 
-  <button type="submit" class="btn btn-block btn-outline-success">Cadastrar</button>
+  <button type="submit" class="{{classbtn}}">{{textoBotao}}</button>
 
 </form>

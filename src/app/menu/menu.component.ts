@@ -8,15 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  logoutBtn: any = '';
+  logoutBtn  = 'a';
   constructor(private loginService: LoginService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
 
-    if( this.loginService.isAutenticado == true){
-      this.logoutBtn = "";
-
-    }
   }
 
 }
