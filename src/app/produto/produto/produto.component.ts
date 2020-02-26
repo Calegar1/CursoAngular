@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-produtos',
   templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css']
+  styleUrls: ['./produto.component.scss']
 })
 export class ProdutosComponent implements OnInit {
 
