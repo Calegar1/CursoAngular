@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="home">Angular</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top border border-success">
+  <a class="navbar-brand text-success " href="home">Angular</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,6 +29,9 @@
           <a class="dropdown-item" [routerLink]="['/produtos/list']" >Lista de produtos</a>
         </div>
       </li>
+      <li class="nav-item" *ngIf="isMostrarAdmin == true">
+        <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/pokemons']" routerLinkActive="active">Pokemons</a>
       </li>
@@ -43,11 +46,12 @@
           <a class="dropdown-item" [routerLink]="['/usuarios/template-form']">Template Form</a>
           <a class="dropdown-item" [routerLink]="['/usuarios/data-form']">Data Form</a>
         </div>
+        btn btn-outline-success my-2 my-sm-0
       </li> -->
     </ul>
 
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
-    </form> -->
+     <form class="form-inline my-2 my-lg-0">
+      <button class="{{btnclass}}" type="submit" (click)="deslogar()">{{btnlogin}}</button>
+    </form>  
   </div>
 </nav>

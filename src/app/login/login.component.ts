@@ -1,3 +1,4 @@
+import { MenuDataService } from './../shared/services/menu-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from './../shared/guards/login.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   meuForm : FormGroup;
   constructor(private loginService: LoginService,  private formBuilder: FormBuilder, private toastr : ToastrService,
-    private router: Router ) { }
+    private router: Router, private menuDataService: MenuDataService ) { }
   ngOnInit(): void {
     
     this.meuForm = this.formBuilder.group({
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   deslogar() {
+  
   this.loginService.setIsAutenticado(false);
   this.router.navigate(['/home'])
 ;  }
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
       (success) => {
 
         if (success == true){
+          this.menuDataService.menuMessageBus.next(true);
           this.router.navigate(['/admin/home'])
           this.toastr.success(`Usuário logado com sucesso`);
         }
@@ -68,8 +71,13 @@ export class LoginComponent implements OnInit {
   getCampo(value){
     return this.meuForm.get( value );
 
+
+    
+    
   }
 
-
+  notificar(){
+    this.menuDataService.menuMessageBus.next(true);
+};
 
 }
