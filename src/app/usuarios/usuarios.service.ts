@@ -1,3 +1,4 @@
+import { UsuarioModel } from './../shared/models/usuario.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 

@@ -1,12 +1,13 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UsuarioModel } from '../shared/models/usuario.model';
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   getAllUsuarios(){
-    return this.http.get(this.url);
+    return this.http.get<UsuarioModel[]>(this.url);
   }
   getCep(cep) {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);

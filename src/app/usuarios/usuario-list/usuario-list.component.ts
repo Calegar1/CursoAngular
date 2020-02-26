@@ -1,3 +1,4 @@
+import { UsuarioModel } from './../../shared/models/usuario.model';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from './../../usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./usuario-list.component.css']
 })
 export class UsuarioListComponent implements OnInit {
- usuarios: any = [];
+ usuarios: UsuarioModel[] = [];
   constructor(private usuarioService : UsuarioService,
     private toastr : ToastrService,
     private router : Router
