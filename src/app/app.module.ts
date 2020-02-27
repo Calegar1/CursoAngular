@@ -14,6 +14,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsuarioListComponent } from './usuarios/usuario-list/usuario-list.component';
 import { LoginComponent } from './login/login.component';
+import { QueenListComponent } from './home/queen-list/queen-list.component';
+import { ArcticListComponent } from './home/arctic-list/arctic-list.component';
+import { IlluminersListComponent } from './home/illuminers-list/illuminers-list.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { LoginComponent } from './login/login.component';
     MenuComponent,
     HomeComponent,
     UsuarioListComponent,
-    LoginComponent
+    LoginComponent,
+    QueenListComponent,
+    ArcticListComponent,
+    IlluminersListComponent
   ],
   imports: [
     BrowserModule,
