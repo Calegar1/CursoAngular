@@ -15,7 +15,7 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(){
     if (this.loginService.isUsuarioAutenticado() == false){
-      this.toastr.error("Você deve ser um administrador para acessar")
+      this.toastr.error("Você deve estar logado para acessar")
         this.router.navigate(['/home']);
     }
     return true;  

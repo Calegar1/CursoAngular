@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {path: 'pokemons',
   loadChildren: () => import('./pokemon/pokemon.module')
-    .then(m => m.PokemonModule)},
+    .then(m => m.PokemonModule), canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
