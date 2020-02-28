@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top border border-success">
   <img src="assets/icon.png" height="50px"  >
-  <a class="navbar-brand text-success " href="home">SpotFail</a>
+  <a class="navbar-brand text-success " [routerLink]="['/home']">SpotFail</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,11 +16,11 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/login']" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Login</a>
-          <a class="dropdown-item" [routerLink]="['/usuarios']">Lista de Usuarios</a>
-          <a class="dropdown-item" [routerLink]="['/usuarios/new']">Cadastro de usuarios</a>
+          <a class="dropdown-item" [routerLink]="['/usuarios']" *ngIf="isMostrarAdmin == true">Lista de Usuarios</a>
+          <a class="dropdown-item" [routerLink]="['/usuarios/new']" *ngIf="isMostrarAdmin == true">Cadastro de usuarios</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" *ngIf="isMostrarAdmin == true">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Produtos
         </a>
@@ -32,7 +32,7 @@
       <li class="nav-item" *ngIf="isMostrarAdmin == true">
         <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isMostrarAdmin == true">
         <a class="nav-link" [routerLink]="['/pokemons']" routerLinkActive="active">Pokemons</a>
       </li>
     
