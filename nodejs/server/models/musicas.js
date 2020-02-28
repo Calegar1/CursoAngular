@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Professor = sequelize.define('professors', {
+    const Musicas = sequelize.define('musicas', {
 
       id : {
         type : DataTypes.INTEGER,
@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement : true
       },  
       nome: DataTypes.STRING,      
-	    email: DataTypes.STRING,
-      
+	    compositor: DataTypes.STRING,
+      iframe: DataTypes.STRING,
     });
   
-    return Professor;
+    return Musicas;
   }

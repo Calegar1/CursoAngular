@@ -40,11 +40,11 @@ export class ProdutosListComponent implements OnInit {
 }
 
   deletar(id_usuario_list){
-    this.usuariosService.deleteUsuario(id_usuario_list).subscribe(
+    this.usuariosService.deleteProduto(id_usuario_list).subscribe(
       (success) => {
         let index = this.produtos.findIndex((elemento) =>{return elemento.id == id_usuario_list});
         this.produtos.splice (index, 1);   
-        this.toastr.success("Usuário deletado com sucesso");
+        this.toastr.success("Produto deletado com sucesso");
         
       },
       (error)=> this.toastr.error('Erro ao deletar')

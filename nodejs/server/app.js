@@ -12,14 +12,14 @@ const porta = process.env.PORT || 8080;
 
 //const sequelize = new Sequelize('grandeporte', 'root', 'root', {host: 'localhost', dialect: 'mysql'}  );
 
-const { Professors, Usuarios, Produtos , Vendas } = require('./sequelize')
+const { Musicas, Usuarios, Produtos , Vendas } = require('./sequelize')
 
 var app = express();
 
 app.use(bodyParser.json())
 app.use( cors() )
-//console.log(Professor);
-//console.log(util.inspect(Professor, {showHidden: false, depth: null}))
+//console.log(Musicas);
+//console.log(util.inspect(Musicas, {showHidden: false, depth: null}))
 
 app.get('/' , function (request, response){
     response.send('Olá');
@@ -29,24 +29,24 @@ app.get('/' , function (request, response){
 //     response.send('Usuário');
 // });
 
-app.get('/professores' , cors(), function (request, response){
-    Professors.findAll().then( p => {
+app.get('/musicas' , cors(), function (request, response){
+    Musicas.findAll().then( p => {
         console.log(p);
         response.send(p);
     }
     );
 });
 
-app.post('/professores' , function (request, response){
-    Professors.create(request.body).then( p => {
+app.post('/musicas' , function (request, response){
+    Musicas.create(request.body).then( p => {
         console.log(p);
         response.send(p);
     }
     );
 });
 
-app.get('/professores/:id' , function (request, response){
-    Professors.findOne(
+app.get('/musicas/:id' , function (request, response){
+    Musicas.findOne(
         {
             where: { id: request.params.id }
         }
@@ -57,8 +57,8 @@ app.get('/professores/:id' , function (request, response){
     );
 });
 
-app.patch('/professores/:id' , function (request, response){
-    Professors.update(request.body,
+app.patch('/musicas/:id' , function (request, response){
+    Musicas.update(request.body,
         {
             where: { id: request.params.id }
         }
@@ -66,7 +66,7 @@ app.patch('/professores/:id' , function (request, response){
         console.log(p);
         //response.send(p);
 
-        Professors.findOne(
+        Musicas.findOne(
             {
                 where: { id: request.params.id }
             }
@@ -81,8 +81,8 @@ app.patch('/professores/:id' , function (request, response){
     );
 });
 
-app.delete('/professores/:id' , function (request, response){
-    Professors.destroy(
+app.delete('/musicas/:id' , function (request, response){
+    Musicas.destroy(
         {
             where: { id: request.params.id }
         }

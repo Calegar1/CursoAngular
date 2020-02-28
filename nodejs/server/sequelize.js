@@ -1,6 +1,6 @@
 
 const Sequelize = require('sequelize')
-const ProfessorModel = require('./models/professor')
+const MusicasModel = require('./models/musicas')
 const UsuarioModel = require('./models/usuario')
 const ProdutoModel = require('./models/produto')
 const VendaModel = require('./models/venda')
@@ -18,11 +18,11 @@ const sequelize = new Sequelize('grandeporte', 'root', 'root', {
 
 
 
-const Professors = ProfessorModel(sequelize, Sequelize)
+const Musicas = MusicasModel(sequelize, Sequelize)
 const Usuarios = UsuarioModel(sequelize, Sequelize)
 const Produtos = ProdutoModel(sequelize, Sequelize)
 const Vendas = VendaModel(sequelize, Sequelize)
 
 module.exports = {
-    Professors, Usuarios, Produtos , Vendas
+    Musicas, Usuarios, Produtos , Vendas
 }

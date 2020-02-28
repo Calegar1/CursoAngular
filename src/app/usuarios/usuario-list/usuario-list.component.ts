@@ -20,7 +20,7 @@ export class UsuarioListComponent implements OnInit {
     this.getAllUsuarios();
   }
 
-   deletar(id_usuario_list){
+  deletar(id_usuario_list){
     this.usuarioService.deleteUsuario(id_usuario_list).subscribe(
       (success) => {
         let index = this.usuarios.findIndex((elemento) =>{return elemento.id == id_usuario_list});
