@@ -9,14 +9,13 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  {
-    path: 'usuarios',
-    loadChildren: () => import('./usuario/usuario.module')
-      .then(m => m.UsuarioModule)
+  {path : 'usuarios',
+  loadChildren : () => import('./usuario/usuario.module')
+    .then(m => m.UsuarioModule),    canActivate: [AuthGuardService]
   },
   {path: 'produtos',
     loadChildren: () => import('./produtos/produtos.module')
-      .then(m => m.ProdutosModule)},
+      .then(m => m.ProdutosModule),    canActivate: [AuthGuardService]},
   {
     path: 'admin', loadChildren: () => import('./admin/admin.module')
       .then(m => m.AdminModule),

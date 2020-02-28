@@ -27,7 +27,7 @@
                 <td> {{ u.logradouro }}</td>
                 <td> {{ u.cidade }}</td>
                 <td> <button class="btn btn-outline-danger mr-2" (click)="deletar( u.id )">Deletar </button>
-                    <button class="btn btn-outline-info  mr-2 mt-2" (click)="editar( u.id )">Alterar</button>
+                    <button class="btn btn-outline-info  mr-2 mt-2" routerLinkActive="router-link-active" (click)="editar( u.id )">Alterar</button>
                 </td>
             </tr>
      

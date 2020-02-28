@@ -9,10 +9,10 @@ import { AuthGuardService } from '../shared/guards/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: UsuarioListComponent, canActivate: [AuthGuardService] },  
-  {path: 'new', component:UsuarioFormComponent} , 
-  {path: 'edit/:id', component:UsuarioFormComponent} , 
-  { path: 'template-form', component: TemplateFormComponent },
-  { path: 'data-form', component: DataFormComponent },
+  {path: 'new', component:UsuarioFormComponent,  canActivate: [AuthGuardService]} , 
+  {path: 'edit/:id', component:UsuarioFormComponent,  canActivate: [AuthGuardService]} , 
+  { path: 'template-form', component: TemplateFormComponent,  canActivate: [AuthGuardService] },
+  { path: 'data-form', component: DataFormComponent,  canActivate: [AuthGuardService] },
 ];
 
 @NgModule({

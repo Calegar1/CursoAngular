@@ -1,6 +1,5 @@
-import { UsuarioModel } from './../../shared/models/usuario.model';
 import { UsuarioService } from './../usuario.service';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,16 +13,14 @@ export class UsuarioFormComponent implements OnInit {
 
   addusuarios: FormGroup;
 
-
-  usuario : UsuarioModel;
-  // usuarios: any = [];
+  usuarios: any = [];
   offset: number = 0;
   limit: number = 10;
   mostrartexto = "Meu botão";
   isHabilitado = true;
 
   user: any = [];
-  cep: any;
+  cep: number;
   endereco: any = [];
 
   isEdicao = false;
@@ -44,42 +41,78 @@ export class UsuarioFormComponent implements OnInit {
   ) {
     console.log(this.activatedRoute);
 
-    this.addusuarios = new FormGroup({
+    this.activatedRoute.params.subscribe(
+      (rota) => {
+        if (rota.id) {
+          console.log("é edição");
+          this.isEdicao = true;
+          this.titulo = "Atualizar cadastro"
+          this.textoBotao = "Atualizar"
+          this.classbtn = "btn btn-block btn-outline-dark"
+          this.idUsuario = rota.id;
 
-      usuario: new FormGroup({
-        id: new FormControl(''),
-        nome: new FormControl(''),
-        senha: new FormControl(''),
-        email: new FormControl(''),
-        cep:new FormControl(''),
-        cidade: new FormControl(''),
-        numero: new FormControl(''),
-        complemento: new FormControl(''),
-        bairro : new FormControl(''),
-        logradouro: new FormControl(''),
-        estado: new FormControl('')
-      })
+          this.usuarioService.getOneUsuario(rota.id).subscribe(
+            (success: any) => {
+              let obj = {
+                nomeInput: success.nome,
+                emailInput: success.email,
+                senhaInput: success.senha,
+                cepInput: success.cep,
+                logradouroInput: success.logradouro,
+                numeroInput: success.numero,
+                complementoInput: success.complemento,
+                cidadeInput: success.cidade,
+                bairroInput: success.bairro,
+                estadoInput: success.estado,
+              };
+
+
+              this.addusuarios.patchValue(obj);
+            },
+            (error) => { },
+          )
+        }
+        else {
+          console.log("é criação")
+          this.titulo = "Cadastrar  usuario";
+          this.textoBotao = "Cadastrar"
+          this.classbtn = "btn btn-block btn-outline-success"
+          this.isEdicao = false;
+        }
+      }
+    )
+
+    this.addusuarios = this.formBuilder.group({
+      nomeInput: ['', []],
+      senhaInput: ['', []],
+      emailInput: ['', []],
+      cepInput: ['', []],
+      cidadeInput: ['', []],
+      logradouroInput: ['', []],
+      numeroInput: ['', []],
+      complementoInput: ['', []],
+      bairroInput: ['', []],
+      estadoInput: ['', []]
     });
 
   }
 
   getEndereco() {
-    let cep = this.addusuarios.get('usuario.cep');
+    this.cep = this.addusuarios.value.cepInput;
     console.log(this.cep)
-    this.enderecoService.getCep(cep.value).subscribe(
+    this.enderecoService.getCep(this.cep).subscribe(
       (response: any) => {
         console.log(response);
-        let obj = {
-          cidade: response.localidade,
-          logradouro: response.logradouro,
-          bairro: response.bairro,
-          estado: response.uf,
-          cep: response.cep
-        }
-
-        this.addusuarios.patchValue( { usuario : obj }  );
-        
-              },
+        this.addusuarios.patchValue(
+          {
+            cidadeInput: response.localidade,
+            logradouroInput: response.logradouro,
+            bairroInput: response.bairro,
+            estadoInput: response.uf
+          }
+        )
+        this.endereco = response;
+      },
 
     );
 
@@ -87,9 +120,21 @@ export class UsuarioFormComponent implements OnInit {
   onSubmit() {
     console.log(this.addusuarios);
 
-   this.usuario = Object.assign({}, this.addusuarios.value.usuario);
+    let obj = {
+      nome: this.addusuarios.value.nomeInput,
+      email: this.addusuarios.value.emailInput,
+      senha: this.addusuarios.value.senhaInput,
+      tipo_usuario: 1,
+      cep: this.addusuarios.value.cepInput,
+      logradouro: this.addusuarios.value.logradouroInput,
+      numero: this.addusuarios.value.numeroInput,
+      complemento: this.addusuarios.value.complementoInput,
+      cidade: this.addusuarios.value.cidadeInput,
+      bairro: this.addusuarios.value.bairroInput,
+      estado: this.addusuarios.value.estadoInput
+    }
     if (this.isEdicao == false){
-      this.enderecoService.postDados(this.usuario).subscribe(
+      this.enderecoService.postDados(obj).subscribe(
         (response: any) => {
           console.log(response);
           this.toastr.success
@@ -101,7 +146,7 @@ export class UsuarioFormComponent implements OnInit {
       );
     }
     else{
-      this.usuarioService.updateUsuario (this.idUsuario, this.usuario).subscribe(
+      this.usuarioService.updateUsuario (this.idUsuario, obj).subscribe(
         (response: any) => {
           this.toastr.success
             ("Usuario alterado com sucesso : " + response.id);
@@ -136,36 +181,6 @@ export class UsuarioFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-    this.activatedRoute.params.subscribe(
-      (rota) => {
-        if (rota.id) {
-          console.log("é edição");
-          this.isEdicao = true;
-          this.titulo = "Atualizar cadastro"
-          this.textoBotao = "Atualizar"
-          this.classbtn = "btn btn-block btn-outline-dark"
-          this.idUsuario = rota.id;
-
-          this.usuarioService.getOneUsuario(rota.id).subscribe(
-            (success: UsuarioModel) => {
-              console.log ( success );
-              this.usuario = success;
-              this.addusuarios.patchValue ( { usuario : this.usuario }  );
-
-            },
-            (error) => { },
-          )
-        }
-        else {
-          console.log("é criação")
-          this.titulo = "Cadastrar  usuario";
-          this.textoBotao = "Cadastrar"
-          this.classbtn = "btn btn-block btn-outline-success"
-          this.isEdicao = false;
-        }
-      }
-    )
   }
 
 }

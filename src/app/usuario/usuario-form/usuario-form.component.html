@@ -1,75 +1,60 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<div class="float-right mt-4 mb-3">
-  <a class="btn btn-outline-danger" [routerLink]="['/usuarios']">Voltar</a></div>
-
-<h1 class="mt-4 text-center"> {{titulo}}</h1>
-
-<form class="mb-3" [formGroup]="addusuarios" (submit)="onSubmit()">
-  <div formGroupName="usuario">
+<div class="float-right mt-4 mb-3" >
+  <a class="btn btn-outline-danger" [routerLink]="['/usuarios']" >Voltar</a></div>
+  
+  <h1 class="mt-4 text-center"> {{titulo}}</h1>
+  
+  <form class="mb-3" [formGroup]="addusuarios" (submit)="onSubmit()">
     <div class="form-row mt-5">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Nome</label>
-        <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
+        <input type="text" class="form-control" placeholder="Nome" formControlName="nomeInput">
       </div>
       <div class="form-group col-md-6">
         <label for="inputPassword4">Senha</label>
-        <input type="password" class="form-control" placeholder="Password" formControlName="senha">
+        <input type="password" class="form-control" placeholder="Password" formControlName="senhaInput">
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Email</label>
-      <input type="text" class="form-control" placeholder="Email" formControlName="email">
+      <input type="text" class="form-control" placeholder="Email" formControlName="emailInput">
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputZip">CEP</label>
-        <input type="text" class="form-control" formControlName="cep" placeholder="Coloque o Seu Código Postal"
+        <input type="text" class="form-control" formControlName="cepInput" placeholder="Coloque o Seu Código Postal"
           (blur)="getEndereco()">
       </div>
       <div class="form-group col-md-8">
         <label for="inputPassword4">Cidade</label>
-        <input type="text" class="form-control" placeholder="São Paulo" formControlName="cidade">
+        <input type="text" class="form-control" placeholder="São Paulo" formControlName="cidadeInput">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Logradouro</label>
-        <input type="text" class="form-control" placeholder="Nome da Rua" formControlName="logradouro"
+        <input type="text" class="form-control" placeholder="Nome da Rua" formControlName="logradouroInput"
           id="logradouroInput">
       </div>
       <div class="form-group col-md-2">
         <label for="inputEmail4">Número</label>
-        <input type="number" class="form-control" placeholder="Número da Casa" formControlName="numero">
+        <input type="number" class="form-control" placeholder="Número da Casa" formControlName="numeroInput">
       </div>
       <div class="form-group col-md-4">
         <label for="inputEmail4">Complemento</label>
-        <input type="text" class="form-control" placeholder="Complemento" formControlName="complemento">
+        <input type="text" class="form-control" placeholder="Complemento" formControlName="complementoInput">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-8">
         <label for="inputEmail4">Bairro</label>
-        <input type="text" class="form-control" placeholder="Bairro" formControlName="bairro">
+        <input type="text" class="form-control" placeholder="Bairro" formControlName="bairroInput">
       </div>
       <div class="form-group col-md-4">
         <label for="inputPassword4">Estado</label>
-        <input type="text" class="form-control" placeholder="SP" formControlName="estado">
+        <input type="text" class="form-control" placeholder="SP" formControlName="estadoInput">
       </div>
     </div>
-
+  
+  
     <button type="submit" class="{{ classbtn }}">{{textoBotao}}</button>
-  </div>
-</form>
-</div>
-</div>
-</div>
-</div>
+  </form>
