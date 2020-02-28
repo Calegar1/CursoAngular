@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { QueenListComponent } from './home/queen-list/queen-list.component';
 import { ArcticListComponent } from './home/arctic-list/arctic-list.component';
 import { IlluminersListComponent } from './home/illuminers-list/illuminers-list.component';
+import { MusicasListComponent } from './musicas/musicas-list/musicas-list.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { IlluminersListComponent } from './home/illuminers-list/illuminers-list.
     LoginComponent,
     QueenListComponent,
     ArcticListComponent,
-    IlluminersListComponent
+    IlluminersListComponent,
+    MusicasListComponent
   ],
   imports: [
     BrowserModule,

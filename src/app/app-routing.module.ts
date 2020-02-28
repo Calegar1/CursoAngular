@@ -3,12 +3,14 @@ import { AuthGuardService } from './shared/guards/auth-guard.service';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { MusicasListComponent } from './musicas/musicas-list/musicas-list.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  {path: 'musicas', component: MusicasListComponent, canActivate: [AuthGuardService] },
   {path : 'usuarios',
   loadChildren : () => import('./usuario/usuario.module')
     .then(m => m.UsuarioModule),    canActivate: [AuthGuardService]
