@@ -11,4 +11,6 @@ export class UsuarioModel{
         bairro: string;
         estado: string;
         cidade: string;
+        compositor: string;
+        iframe: string;
 }

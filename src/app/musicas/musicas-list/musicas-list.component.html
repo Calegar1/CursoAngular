@@ -1,1 +1,30 @@
-<p>musicas-list works!</p>
+
+<!-- <div id="detalhe" class="row d-flex justify-content-center"> -->
+
+
+    <div class="float-right mt-4 mb-3">
+        <a class="btn btn-outline-success" [routerLink]="['/usuarios/new']" >Cadastrar Música</a>
+        </div>
+
+    <table class="table table-hover table-dark mt-5 ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">compositor</th>
+                <th scope="col">iframe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of usuarios">
+                <td> {{ u.id }} </td>
+                <td> {{ u.nome }} </td>
+                <td> {{ u.compositor }}</td>
+                <td> {{ u.iframe }}</td>
+                <td> <button class="btn btn-outline-danger mr-2" (click)="deletar(u.id)">Deletar </button>
+                    <!-- <button class="btn btn-outline-info  mr-2 mt-2" routerLinkActive="router-link-active" (click)="editar( u.id )">Alterar</button>
+              -->  </td>  
+            </tr>
+     
+        </tbody>
+    </table>

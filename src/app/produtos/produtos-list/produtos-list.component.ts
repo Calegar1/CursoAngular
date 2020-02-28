@@ -1,3 +1,4 @@
+import { UsuarioModel } from './../../shared/models/usuario.model';
 import { UsuariosService } from 'src/app/usuarios/usuarios.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./produtos-list.component.css']
 })
 export class ProdutosListComponent implements OnInit {
-  produtos: any = [];
+  produtos: UsuarioModel[] = [];
   constructor(private usuariosService : UsuariosService,
     private toastr : ToastrService,
     private router : Router) { } 
@@ -43,8 +44,9 @@ export class ProdutosListComponent implements OnInit {
     this.usuariosService.deleteProduto(id_usuario_list).subscribe(
       (success) => {
         let index = this.produtos.findIndex((elemento) =>{return elemento.id == id_usuario_list});
-        this.produtos.splice (index, 1);   
+        this.produtos.splice(index, 1)
         this.toastr.success("Produto deletado com sucesso");
+        // this.consultarProdutos();
         
       },
       (error)=> this.toastr.error('Erro ao deletar')

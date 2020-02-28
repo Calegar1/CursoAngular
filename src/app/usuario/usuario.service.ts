@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
   getAllUsuarios(){
-    return this.http.get<UsuarioModel[]>(this.url);
+    return this.http.get<UsuarioModel[]>("http://localhost:8080/usuarios");
   }
   getCep(cep) {
     return this.http.get(`https://viacep.com.br/ws/${cep}/json`);

@@ -31,6 +31,9 @@ consultarOneProduto(id_usuario){
   deleteProduto(id_usuario){
     return this.http.delete("http://localhost:8080/produtos/"+ id_usuario)
   }
+  deleteMusicas(id_usuario){
+    return this.http.delete("http://localhost:8080/musicas/"+ id_usuario)
+  }
   updateProduto(id_usuario, obj){
     return this.http.post ("http://localhost:8080/produtos/" + id_usuario , obj)
   };
