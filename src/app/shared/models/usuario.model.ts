@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from '@angular/platform-browser';
+
 export class UsuarioModel{
         id : number;
         nome: string;
@@ -14,4 +16,5 @@ export class UsuarioModel{
         compositor: string;
         iframe: string;
         produtos: string;
+        urlSafe: SafeResourceUrl;
 }

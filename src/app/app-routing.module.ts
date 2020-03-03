@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   {path: 'musicas', component: MusicasListComponent, canActivate: [AuthGuardService] },
+  //{path: 'musicas', component: MusicasListComponent },
   {path: 'form-musicas', component: MusicasFormComponent, canActivate: [AuthGuardService] },
   {path : 'usuarios',
   loadChildren : () => import('./usuario/usuario.module')
