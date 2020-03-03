@@ -18,6 +18,7 @@ import { QueenListComponent } from './home/queen-list/queen-list.component';
 import { ArcticListComponent } from './home/arctic-list/arctic-list.component';
 import { IlluminersListComponent } from './home/illuminers-list/illuminers-list.component';
 import { MusicasListComponent } from './musicas/musicas-list/musicas-list.component';
+import { MusicasFormComponent } from './musicas/musicas-form/musicas-form.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MusicasListComponent } from './musicas/musicas-list/musicas-list.compon
     QueenListComponent,
     ArcticListComponent,
     IlluminersListComponent,
-    MusicasListComponent
+    MusicasListComponent,
+    MusicasFormComponent
   ],
   imports: [
     BrowserModule,

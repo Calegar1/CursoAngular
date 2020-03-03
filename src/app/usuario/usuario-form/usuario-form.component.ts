@@ -154,17 +154,6 @@ export class UsuarioFormComponent implements OnInit {
         }
       );
     }
-
-    // this.enderecoService.postDados(obj).subscribe(
-    //   (response: any) => {
-    //     console.log(response);
-    //     this.toastr.success
-    //       ("Usuario inserido com sucesso : " + response.id);
-    //     this.router.navigate(['/usuarios']);
-
-    //   },
-    // )
-
   }
 
 

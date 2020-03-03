@@ -15,8 +15,10 @@ export class UsuarioService {
   }
   postDados(obj) {
     return this.http.post(this.url, obj);
+  } 
+  postDados2(obj) {
+    return this.http.post("http://localhost:8080/musicas", obj);
   }
-
   url = environment.api + "usuarios/";
   constructor( private http : HttpClient) { 
 

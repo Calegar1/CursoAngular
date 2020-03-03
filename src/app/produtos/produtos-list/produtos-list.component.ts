@@ -25,7 +25,7 @@ export class ProdutosListComponent implements OnInit {
     
   consultarProdutos() {
       this.usuariosService.consultarProdutos().subscribe(
-        (success) => {
+        (success : any) => {
           console.log (success);
           this.produtos = success;
         },

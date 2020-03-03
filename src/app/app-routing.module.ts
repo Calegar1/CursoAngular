@@ -4,6 +4,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MusicasListComponent } from './musicas/musicas-list/musicas-list.component';
+import { MusicasFormComponent } from './musicas/musicas-form/musicas-form.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   {path: 'musicas', component: MusicasListComponent, canActivate: [AuthGuardService] },
+  {path: 'form-musicas', component: MusicasFormComponent, canActivate: [AuthGuardService] },
   {path : 'usuarios',
   loadChildren : () => import('./usuario/usuario.module')
     .then(m => m.UsuarioModule),    canActivate: [AuthGuardService]

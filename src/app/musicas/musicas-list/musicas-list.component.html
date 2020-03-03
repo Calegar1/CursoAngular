@@ -1,9 +1,9 @@
 
-<!-- <div id="detalhe" class="row d-flex justify-content-center"> -->
+<!-- <pre id="detalhe" class="row d-flex justify-content-center"> -->
 
 
     <div class="float-right mt-4 mb-3">
-        <a class="btn btn-outline-success" [routerLink]="['/usuarios/new']" >Cadastrar Música</a>
+        <a class="btn btn-outline-success" [routerLink]="['/form-musicas']" >Cadastrar Música</a>
         </div>
 
     <table class="table table-hover table-dark mt-5 ">
@@ -22,9 +22,22 @@
                 <td> {{ u.compositor }}</td>
                 <td> {{ u.iframe }}</td>
                 <td> <button class="btn btn-outline-danger mr-2" (click)="deletar(u.id)">Deletar </button>
-                    <!-- <button class="btn btn-outline-info  mr-2 mt-2" routerLinkActive="router-link-active" (click)="editar( u.id )">Alterar</button>
-              -->  </td>  
+             </td>  
             </tr>
-     
         </tbody>
     </table>
+    <div class="col-lg-4 col-md-6 mb-4"  *ngFor="let u of usuarios">
+        <div class="card h-100">
+          <div class="card-body">
+            <p [innerHTML]="u.iframe"></p>
+            <h4 class="card-title">
+              <a>{{ u.nome }}</a>
+            </h4>
+            <p class="card-text">{{ u.compositor }}</p>
+          </div>
+          <div class="card-footer">
+        
+            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+          </div>
+        </div>
+      </div>

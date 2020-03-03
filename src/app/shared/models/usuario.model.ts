@@ -13,4 +13,5 @@ export class UsuarioModel{
         cidade: string;
         compositor: string;
         iframe: string;
+        produtos: string;
 }

@@ -42,8 +42,8 @@ export class MusicasListComponent implements OnInit {
   private getAllMusicas() {
     this.musicasService.getAllMusicas().subscribe(
       (success) => {
-        console.log (success);
         this.usuarios = success;
+        console.log (this.usuarios);
       },
       (error)=> this.toastr.error('Erro ao consultar a api')
     );

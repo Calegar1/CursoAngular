@@ -16,4 +16,9 @@ export class MusicasService {
   deleteMusicas(id_musica_list){
     return this.http.delete("http://localhost:8080/musicas" + id_musica_list)
   }
+
+  postDados(obj) {
+    return this.http.post("http://localhost:8080/musicas", obj);
+  }
+
 }
